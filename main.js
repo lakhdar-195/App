@@ -5,16 +5,25 @@ const { app, BrowserWindow, Menu, MenuItem } = require('electron');
 const createWindow = () => {
     const win = new BrowserWindow({
       width: 800,
-      height: 600
+      height: 600,
+      webPreferences: {
+        nodeIntegration: true
+    }
     })
+
+
   
     win.loadFile('index.html')
+    win.maximize();
+    win.webContents.openDevTools()
   }
 
 //launch window 
 app.whenReady().then(() => {
   createWindow()
 })
+
+
 
 // custom menu 
 const menu = new Menu()
