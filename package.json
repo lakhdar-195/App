@@ -1,0 +1,22 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lakhdar-195/app-electron.git"
+  },
+  "author": "lakhdar-195",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lakhdar-195/app-electron/issues"
+  },
+  "homepage": "https://github.com/lakhdar-195/app-electron#readme",
+  "dependencies": {
+    "electron": "4.2"
+  }
+}
