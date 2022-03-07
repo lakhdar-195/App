@@ -5,7 +5,7 @@ class Router  {
 
         $("#container").load("./core/login/login.html", () => {
 
-            $.getScript("./core/login/login.js")
+            $.getScript("./core/login/login.js");
         });
 
     }
@@ -16,7 +16,7 @@ class Router  {
 
             $.getScript("./core/menu/menu.js", () => {
 
-                this.loader('home')
+                this.loader('home');
             })
         });
     }
@@ -25,7 +25,7 @@ class Router  {
 
         $("#container").load("./core/" + $page + "/" + $page +".html", () => {
 
-            $.getScript("./core/" + $page + "/" + $page +".js")
+            $.getScript("./core/" + $page + "/" + $page +".js");
         });
     }
 }

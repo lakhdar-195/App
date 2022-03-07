@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/lakhdar-195/app-electron#readme",
   "dependencies": {
-    "electron": "4.2"
+    "electron": "4.2",
+    "mysql": "^2.18.1",
+    "sha1": "^1.1.1"
   }
 }
