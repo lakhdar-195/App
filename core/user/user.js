@@ -82,7 +82,7 @@ function User (){
     function empty () {
 
         $("#success").show();
-        $("#success").text("l'enregistrement a été effectué avec succès");
+        $("#success").text("L'enregistrement a été effectué avec succès");
 
         $("#role").val("");
         $("#name").val("");
@@ -132,7 +132,7 @@ function User (){
         }else if (password1 === password2 && val === false) {
 
             $("#alert").show();
-            $("#alert").text("mot de pass doit avoir lettre, chiffre, caractère spécial long 8")
+            $("#alert").text("Mot de pass doit avoir lettre, chiffre, caractère spécial long 8")
             return false
         }else if(password1 === password2 && val === true) {
 
