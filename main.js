@@ -28,26 +28,26 @@ app.whenReady().then(() => {
 
 
 // custom menu 
-const menu = new Menu()
-menu.append(new MenuItem({
-    label: 'File',
-    submenu:[    
-                {
-                    role: 'help',
-                    accelerator: process.platform === 'darwin' ? 'Alt+Cmd+I' : 'Alt+Shift+I',
-                    click: () => { console.log('Electron rocks!') }
-                },
-                {
-                    role: 'Quit',
-                    accelerator: process.platform === 'darwin' ? 'Cmd+Q' : 'Ctrl+Q',
-                    click: () => {app.quit()}
+// const menu = new Menu()
+// menu.append(new MenuItem({
+//     label: 'File',
+//     submenu:[    
+//                 {
+//                     role: 'help',
+//                     accelerator: process.platform === 'darwin' ? 'Alt+Cmd+I' : 'Alt+Shift+I',
+//                     click: () => { console.log('Electron rocks!') }
+//                 },
+//                 {
+//                     role: 'Quit',
+//                     accelerator: process.platform === 'darwin' ? 'Cmd+Q' : 'Ctrl+Q',
+//                     click: () => {app.quit()}
 
-                }
+//                 }
     
-            ]
-}))
+//             ]
+// }))
 
-Menu.setApplicationMenu(menu)
+// Menu.setApplicationMenu(menu)
 
 // create close window
 app.on('window-all-closed', () => {

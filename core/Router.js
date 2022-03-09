@@ -1,7 +1,7 @@
 class Router  {
 
 
-    constructor () {
+    init () {
 
         $("#container").load("./core/login/login.html", () => {
 
@@ -31,3 +31,4 @@ class Router  {
 }
 
 var $router =  new Router();
+$router.menu();
