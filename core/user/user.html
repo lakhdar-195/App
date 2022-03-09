@@ -2,31 +2,41 @@
     <div class="row row-user">
         <div class="col-3"></div>
         <div class="col-6">
-            <fieldset class="mt-5 border p-3 rounded">
-                <legend  class="mb-5 btn-primary rounded text-light text-center p-3">Ajouter user</legend>
-           
-                <div class="mb-3 mt-5">
+            <fieldset class="mt-2 border p-3 rounded">
+                <legend  class="mb-3 btn-primary rounded text-light text-center p-3">Ajouter user</legend>
+                <div class="col-12">
+                    <div id="success" class="alert rounded alert-success" role="alert"></div>
+                    <div id="alert" class="alert rounded alert-danger" role="alert"></div>
+                </div>
+                <div class="mb-3">
+                    <label for="disabledSelect" class="form-label">Role</label>
+                    <select id="role" class="form-select" aria-label="Default select">
+                        <option value="user">User</option>
+                        <option value="super">Super user</option>
+                      </select>
+                </div>
+                <div class="mb-3">
                     <label for="name" class="form-label">Nom</label>
-                    <input type="text" class="form-control" id="name" aria-describedby="nameHelp">
+                    <input id="name" type="text" class="form-control" id="name" aria-describedby="nameHelp">
                 </div>
                 <div class="mb-3">
                     <label for="email" class="form-label">E-mail</label>
-                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+                    <input id="email" type="email" class="form-control" id="email" aria-describedby="emailHelp">
                 </div>
                 <div class="mb-3">
                   <label for="password1" class="form-label">Mot de passe</label>
-                  <input type="password" class="form-control" id="password1">
+                  <input id="password1" type="password" class="form-control" id="password1">
                 </div>
                 <div class="mb-3">
                   <label for="password2" class="form-label">Repeter mot de passe</label>
-                  <input type="password2" class="form-control" id="password2">
+                  <input id="password2" type="password" class="form-control" id="password2">
                 </div>
                 <div class="mb-3 form-check">
-                  <input type="checkbox" class="form-check-input" id="check">
+                  <input id="check" type="checkbox" class="form-check-input">
                   <label class="form-check-label" for="active">Activer user</label>
                 </div>
                 <div class="col-12 d-flex justify-content-end">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button id="submit" type="submit" class="btn btn-primary">Entrer</button>
                 </div>
             </fieldset>
         </div>
