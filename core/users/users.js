@@ -1,5 +1,6 @@
 function Users () {
 
+    // selct all account
     this.init = function () {
 
         var sql = "SELECT * FROM Login";
@@ -13,6 +14,7 @@ function Users () {
         });
     }
 
+    // display data of all account 
     function display ($results) {
 
         var months = ["Jan", "Fév", "Mar", "Avr", "Mai", "Jui", "Jui", "Aou", "Sep", "Oct", "Nov", "Déc"];
@@ -28,20 +30,20 @@ function Users () {
 
             if ($results[i].role == 'user'){
 
-                role = '<i class="fa-solid fa-graduation-cap"></i>';
+                role = '<button type="button" class="btn btn-secondary " onclick="$users.changeRole(`' + $results[i].email + '`)"> User </button>';
 
             }else if ($results[i].role == 'super'){
 
-                role = '<i class="fa-solid fa-crown"></i>';
+                role = '<button type="button" class="btn btn-success" onclick="$users.changeRole(`' + $results[i].email + '`)"> Super user </button>';
             }
 
             if($results[i].state == 0){
 
-                state = '<a href="#" ><i style="color:red;" class="fa-solid fa-circle" onclick="$users.change(`'+$results[i].email +'`)"></i> </a>'
+                state = '<button type="button" class="btn btn-danger" onclick="$users.changeState(`'+$results[i].email +'`)"> Verrouillé </button> '
             }else 
             if($results[i].state == 1){
 
-                state = '<a href="#" ><i style="color:green;" class="fa-solid fa-circle" onclick="$users.change(`' + $results[i].email + '`)" ></i></a>'
+                state = '<button type="button" class="btn btn-success" onclick="$users.changeState(`' + $results[i].email + '`)" >Déverrouillé</button>'
             }
 
             card = "";
@@ -49,11 +51,11 @@ function Users () {
             card += '<div class="card">';
             card += '<div class="card">';
             card += '<div class="card-body">';
-            card += '<h5 class="card-title">' + role + " " + $results[i].name + '</h5>'
+            card += '<h5 class="card-title" style="text-transform: uppercase;">' + $results[i].name + '</h5>'
             card += '<p class="card-text">' + $results[i].email + '</p>'
-            card += '<p class="card-text">' + date +'</p>'
+            card += '<i class="" style="font-size: 12px;">' + date +'</i>'
             card += '</div>';
-            card += '<div class="card-footer">' + state + '</div>'
+            card += '<div class="card-footer">' + role + ' ' + state + '</div>'
             card += '</div>';
             card += '</div>';
             card += '</div>';
@@ -62,16 +64,14 @@ function Users () {
         }
     }
 
-    this.change = function (email) {
+    // function to change state
+    this.changeState = function (email) {
 
         var $sql = ""
 
         var sql = "SELECT * From Login WHERE email='" + email + "'";
         connection.query(sql, function (error, results) {
             if (error) throw error;
-
-            console.log(results[0])
-            console.log(email)
 
             if(results[0].state == 0){
                 
@@ -81,6 +81,30 @@ function Users () {
             if(results[0].state == 1){
                 
                 $sql = "UPDATE Login SET state = 0 WHERE email = '" + email + "'";
+                connection.query($sql);
+            }
+        });
+
+        $router.loader('users')
+    }
+
+    // function to change role
+    this.changeRole = function (email) {
+
+        var $sql = ""
+
+        var sql = "SELECT * From Login WHERE email='" + email + "'";
+        connection.query(sql, function (error, results) {
+            if (error) throw error;
+
+            if(results[0].role == 'user'){
+                
+                $sql = "UPDATE Login SET role = 'super' WHERE email = '" + email + "'";
+                connection.query($sql);
+            }else 
+            if(results[0].role == 'super'){
+                
+                $sql = "UPDATE Login SET role = 'user' WHERE email = '" + email + "'";
                 connection.query($sql);
             }
         });
