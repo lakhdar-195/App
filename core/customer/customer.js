@@ -16,7 +16,7 @@ function Customer () {
     var _comment = null;
     var _news = null;
 
-    // init click
+    // init click form
     this.init = function () {
 
         $("#alert").hide();
