@@ -52,7 +52,7 @@ function Users () {
             card += '<div class="card">';
             card += '<div class="card-body">';
             card += '<h5 class="card-title" style="text-transform: uppercase;">' + $results[i].name + '</h5>'
-            card += '<p class="card-text">' + $results[i].email + '</p>'
+            card += '<i class="card-text">' + $results[i].email + '</i> </br>'
             card += '<i class="" style="font-size: 12px;">' + date +'</i>'
             card += '</div>';
             card += '<div class="card-footer">' + role + ' ' + state + '</div>'

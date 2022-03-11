@@ -29,7 +29,7 @@ function User (){
             if(check == false){
 
                 check = 0;
-            }else if (check = true){
+            }else if (check == true){
                 check= 1;
             }
 
@@ -69,13 +69,16 @@ function User (){
 
         connection.query(sql, function (error, results) {
             if (error) throw error;
-            console.log('The solution is: ', results.warningCount);
 
             if(results.warningCount == 0){
 
                 empty();
+            }else {
+
+                $("#alert").show();
+                $("#alert").text("Erreur de connection base de données")
             }
-          });
+        });
     }
 
     // empty form

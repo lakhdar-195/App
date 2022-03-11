@@ -3,15 +3,24 @@
         <div class="col-4"></div>
         <div class="col-4">
 
-            <div class="mb-3">
-                <label for="email" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
-            </div>
-            <div class="mb-3">
-                <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" id="password">
-            </div>
-            <button type="submit" class="btn btn-primary" id="submit">Submit</button>
+            <fieldset class="mt-5 border p-3 rounded">
+                <legend  class="mb-5 btn-primary rounded text-light text-center p-3">Login</legend>
+                <div class="col-12">
+                    <div id="alert" class="alert rounded alert-danger" role="alert"></div>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">E-mail</label>
+                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Mot de passe</label>
+                    <input type="password" class="form-control" id="password">
+                </div>
+                <div class="col-12 d-flex justify-content-end">
+                    <button type="submit" class="btn btn-primary" id="submit">Submit</button>
+                </div>
+                
+            </fieldset>
 
         </div>
         <div class="col-4"></div>
