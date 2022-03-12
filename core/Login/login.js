@@ -20,7 +20,7 @@ function Login ()  {
         });
     }
 
-    
+    // search in the login account email and hash password
     function log () {
 
         // hash sha1 password

@@ -10,6 +10,7 @@ function User (){
     var password2 = null;
     var check = null;
 
+    // on submit get values from form
     this.init = function () {
 
         $("#alert").hide();
@@ -60,7 +61,7 @@ function User (){
         });
     }
 
-    // insert in the database table login
+    //  hash passowrd and insert in the database table login
     function inserto () {
 
         var password = sha1(password1);
@@ -97,8 +98,8 @@ function User (){
 
     /**
      * check email with regex
-     * @param {*} email 
-     * @returns 
+     * @param {*} email string
+     * @returns boolean
      */
     function checkMail (email){
 
@@ -116,9 +117,9 @@ function User (){
 
     /**
      * check passwords with regex
-     * @param {*} password1 
-     * @param {*} password2 
-     * @returns 
+     * @param {*} password1 string
+     * @param {*} password2 string
+     * @returns boolean
      */
     function checkPassword (password1, password2) {
 

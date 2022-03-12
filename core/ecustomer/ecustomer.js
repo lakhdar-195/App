@@ -1,8 +1,7 @@
 
-function Customer () {
+function Ecustomer () {
 
     // init variables
-    var _id = localStorage.getItem("id");
     var _company = null;
     var _first_name = null;
     var _name = null;
@@ -16,11 +15,76 @@ function Customer () {
     var _comment = null;
     var _news = null;
 
-    // init click form
-    this.init = function () {
-
+    // search data from clients account
+    this.init = function() {
+ 
         $("#alert").hide();
         $("#success").hide();
+        var $i = 0;
+        var $select = "";
+
+        $select += '<div class="col-6">'
+        $select += '<label for="disabledSelect" class="form-label">Entreprise</label>';
+        $select += '<select id="company_select" class="form-select" aria-label="Default select" onChange="$ecustomer.select()">';
+        $select += '<option selected>Choisir une entreprise</option>';
+
+        var $sql = "SELECT * FROM Clients";
+        connection.query($sql, function (error, results) {
+            if(error) throw error;
+
+            for($i = 0; $i < results.length; $i++){
+
+                $select += '<option value="' + results[$i].email + '">' + results[$i].company + '</option>';
+            }
+                
+            $select += '</select>';
+            $select += '</div>';
+
+            $("#_select").prepend($select);
+
+        })
+
+    }
+
+
+    // search data from clients account where email of client
+    this.select = function () {
+
+        var $select = $("#company_select").val();
+        var $sql = "SELECT * FROM Clients WHERE email='" + $select + "'";
+
+        connection.query($sql, function (error, results){
+            if(error) throw error;
+
+            _company = $("#company").val(results[0].company);
+            _first_name = $("#first_name").val(results[0].first_name);
+            _name = $("#name").val(results[0].name);
+            _status = $("#status").val(results[0].status);
+            _email = $("#email").val(results[0].email);
+            _tel = $("#tel").val(results[0].tel);
+            _address = $("#address").val(results[0].address);
+            _zip = $("#zip").val(results[0].zip);
+            _city = $("#city").val(results[0].city);
+            _activity = $("#activity").val(results[0].activity);
+            _comment = $("#comment").val(results[0].comment);
+            _news = $("#news").prop("checked");
+
+            if(results[0].news == 1){
+
+                $("#news").prop("checked", true);
+            }else if (results[0].news == 0){
+                $("#news").prop("checked", false);
+            }
+
+            register();
+
+        })
+    }
+
+    // on submit get values from form
+    function register() {
+
+
         $("#submit").click(function () {
 
             $("#alert").hide();
@@ -47,34 +111,17 @@ function Customer () {
 
             if(checkForm() == true){
 
-                checkRegister();
+                update();
             }
         });
     }
 
-    // check if account exite
-    function checkRegister () {
+    // update the client account
+    function update () {
 
-        var sql = "SELECT * FROM Clients WHERE email = '" + _email + "'";
-        connection.query(sql, function (error, results){
-            if(error) throw error;
-            if(results[0]){
-
-                $("#alert").show();
-                $("#alert").text("Client existe déja")
-
-            }else {
-
-                inserto();
-            }
-
-        })
-    }
-
-    // insert to database
-    function inserto () {
-
-        var sql = "INSERT INTO Clients (id, company, first_name, name, status, email, tel, address, zip, city, news, activity, comment, login_id, date) VALUES (null, '" + _company +"', '" + _first_name + "', '" + _name + "', '" + _status + "', '" + _email + "', '" + _tel+ "', '" + _address + "', '" + _zip + "','" + _city + "','" + _news + "','" + _activity + "','" + _comment + "','" + _id + "', CURRENT_TIMESTAMP)";
+        var $email = $("#company_select").val();
+        // update
+        var sql = "UPDATE Clients SET company='" + _company + "', first_name='" + _first_name + "', name='" + _name + "', status='" + _status + "', email='" + _email + "', tel='" + _tel + "', address='" + _address + "', zip='" + _zip + "', city='" + _city + "', activity='" + _activity + "', comment='" + _comment + "', news='" + _news + "' WHERE email = '" + $email + "'";
 
         connection.query(sql, function (error, results) {
             if (error) throw error;
@@ -152,7 +199,7 @@ function Customer () {
         }
     }
 
-    // empty the form
+    // empty the form and refresh
     function empty () {
 
         $("#success").show();
@@ -171,11 +218,13 @@ function Customer () {
         $("#comment").val("");
         $("#news").prop("checked", false);
 
+        $router.loader('ecustomer');
+
     }
 
     /**
      * check if email is valid
-     * @param {*} email 
+     * @param {*} email string
      * @returns boolean
      */
     function checkMail (email){
@@ -191,7 +240,7 @@ function Customer () {
 
     /**
      * check if phone is valid
-     * @param {*} phone 
+     * @param {*} phone string
      * @returns boolean
      */
     function checkPhone (phone){
@@ -208,7 +257,7 @@ function Customer () {
 
     /**
      * check if zip is valid
-     * @param {*} zip 
+     * @param {*} zip string
      * @returns boolean
      */
     function checkZip (zip) {
@@ -225,5 +274,5 @@ function Customer () {
 
 }
 
-var $customer = new Customer();
-$customer.init();
+var $ecustomer = new Ecustomer();
+$ecustomer.init();

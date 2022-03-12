@@ -1,0 +1,74 @@
+<div class="container">
+    <div class="row row-user">
+        <div class="col-2"></div>
+        <div class="col-8">
+            <fieldset class="mt-2 border p-3 rounded">
+                <legend  class="mb-3 btn-primary rounded text-light text-center p-3">Ajouter user</legend>
+                <div class="col-12">
+                    <div id="success" class="alert rounded alert-success" role="alert"></div>
+                    <div id="alert" class="alert rounded alert-danger" role="alert"></div>
+                </div>
+                <div id="_select" class="row mb-3">
+                    <div class="col-6">
+                        <label for="company" class="form-label">Nom entreprise</label>
+                        <input id="company" type="text" class="form-control"  aria-describedby="companyHelp">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <label for="first_name" class="form-label">Nom dirigeant</label>
+                        <input id="first_name" type="text" class="form-control"  aria-describedby="first_nameHelp">
+                    </div>
+                    <div class="col-6">
+                        <label for="name" class="form-label">Prénom</label>
+                        <input id="name" type="text" class="form-control"  aria-describedby="nameHelp">
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-3">
+                        <label for="status" class="form-label">Status</label>
+                        <input id="status" type="text" class="form-control"  aria-describedby="statusHelp">
+                    </div>
+                    <div class="col-6">
+                        <label for="email" class="form-label">E-mail</label>
+                        <input id="email" type="email" class="form-control" id="email" aria-describedby="emailHelp">
+                    </div>
+                    <div class="col-3">
+                        <label for="tel" class="form-label">téléphone</label>
+                        <input id="tel" type="text" class="form-control"  aria-describedby="telHelp">
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-6">
+                        <label for="address" class="form-label">Adresse</label>
+                        <input id="address" type="text" class="form-control"  aria-describedby="addressHelp">
+                    </div>
+                    <div class="col-3">
+                        <label for="zip" class="form-label">Code postale</label>
+                        <input id="zip" type="text" class="form-control"  aria-describedby="zipHelp">
+                    </div>
+                    <div class="col-3">
+                        <label for="city" class="form-label">Ville</label>
+                        <input id="city" type="text" class="form-control"  aria-describedby="cityHelp">
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="activity" class="form-label">Activity</label>
+                    <input id="activity" type="text" class="form-control"  aria-describedby="activityHelp">
+                </div>
+                <div class="mb-3 form-check">
+                  <input id="news" type="checkbox" class="form-check-input">
+                  <label class="form-check-label" for="active">Newsletter</label>
+                </div>
+                <div class="form-group">
+                    <label for="comment">commentaire</label>
+                    <textarea class="form-control" id="comment" rows="3"></textarea>
+                </div>
+                <div class="col-12 mt-3 d-flex justify-content-end">
+                    <button id="submit" type="submit" class="btn btn-primary">Entrer</button>
+                </div>
+            </fieldset>
+        </div>
+        <div class="col-2"></div>
+    </div>
+</div>

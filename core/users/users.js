@@ -17,7 +17,7 @@ function Users () {
     // display data of all account 
     function display ($results) {
 
-        var months = ["Jan", "Fév", "Mar", "Avr", "Mai", "Jui", "Jui", "Aou", "Sep", "Oct", "Nov", "Déc"];
+        var months = ["Jan", "Fév", "Mar", "Avr", "Mai", "Jun", "Jui", "Aou", "Sep", "Oct", "Nov", "Déc"];
         var card = "";
         var date = "";
         var role = ""

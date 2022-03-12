@@ -2,10 +2,12 @@ var sha1 = require('sha1')
 
 function Password () {
 
+    // init variables
     var _password1 = null;
     var _password2 = null;
     var _email = localStorage.getItem('email');
 
+    // on submit get vlues from form
     this.init = function () {
 
         $("#alert").hide();
@@ -29,6 +31,7 @@ function Password () {
         })
     }
 
+    // hash and update password of account where email 
     function update () {
 
         var password = sha1(_password1);
@@ -55,7 +58,12 @@ function Password () {
         $("#password2").val("");
     }
 
-
+    /**
+     * 
+     * @param {*} password1 string
+     * @param {*} password2 string
+     * @returns boolean
+     */
     function checkPassword (password1, password2) {
 
         // Minimum eight characters, at least one letter, one number and one special character:
