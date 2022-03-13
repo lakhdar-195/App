@@ -9,9 +9,12 @@ const createWindow = () => {
       webPreferences: {
         contextIsolation: false,
         nodeIntegration: true,
-        nodeIntegrationInWorker: true
+        nodeIntegrationInWorker: true,
+        enableRemoteModule: true
       }
     })
+
+
 
 
   

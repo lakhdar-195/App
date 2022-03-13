@@ -18,7 +18,9 @@
   "homepage": "https://github.com/lakhdar-195/app-electron#readme",
   "dependencies": {
     "electron": "4.2",
+    "fs": "^0.0.1-security",
     "mysql": "^2.18.1",
+    "pdfkit": "^0.13.0",
     "sha1": "^1.1.1"
   }
 }
