@@ -31,4 +31,4 @@ class Router  {
 }
 
 var $router =  new Router();
-$router.init();
+$router.menu();

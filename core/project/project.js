@@ -5,7 +5,7 @@ function Project () {
     var _clientId = null;
     var _name = null;
     var _dateStart = null;
-    var _dateEnd = null;
+    var _datedead = null;
     var _comment = null;
     var _price = null;
     var _folder = null;
@@ -27,7 +27,7 @@ function Project () {
 
             for ($i = 0; $i < results.length; $i++){
 
-                $select += '<option value="' + results[$i].id + '"> ' + results[$i].company + ' </option>'
+                $select += '<option value="' + results[$i].id_client + '"> ' + results[$i].company + ' </option>'
             }
 
             $select += '</select>';
@@ -50,14 +50,14 @@ function Project () {
             _clientId = $("#client").val();
             _name = $("#name").val();
             _dateStart = $("#start").val();
-            _dateEnd = $("#end").val();
+            _datedead = $("#end").val();
             _comment = $("#comment").val();
             _price = $("#price").val();
 
             var ds = new Date(_dateStart);
             _dateStart = ds.toISOString().split('T')[0]+' '+ds.toTimeString().split(' ')[0];
-            var de = new Date(_dateEnd);
-            _dateEnd = de.toISOString().split('T')[0]+' '+de.toTimeString().split(' ')[0];
+            var de = new Date(_datedead);
+            _datedead = de.toISOString().split('T')[0]+' '+de.toTimeString().split(' ')[0];
         
             var $rand = Math.floor(Math.random() * (100 - 10) + 10);
             var $months = ["jan", "Fev", "Mar", "Avr", "Mai", "Jun", "Jui", "Aou", "Sep", "Oct", "Nov", "Dec"];
@@ -78,7 +78,7 @@ function Project () {
     // insert into the database
     function inserto () {
 
-        var $sql = "INSERT INTO Project (id, name, start, end, price, folder, comment, date, Clients_id) VALUES(null, '" +_name + "', '" +_dateStart + "', '" +_dateEnd + "', '" +_price + "' ,'" +_folder + "', '" +_comment + "', CURRENT_TIMESTAMP, '" + _clientId + "')";
+        var $sql = "INSERT INTO Project (id_project, name_project, start, deadline, price, folder, comment_project, date_project, end, Clients_id) VALUES(null, '" +_name + "', '" +_dateStart + "', '" +_datedead + "', '" +_price + "' ,'" +_folder + "', '" +_comment + "', CURRENT_TIMESTAMP, null, '" + _clientId + "')";
         connection.query($sql, function (error, results) {
             if(error) throw error;
             if(results.warningCount == 0){
@@ -147,11 +147,11 @@ function Project () {
     function checkDate () {
 
         var s = new Date(_dateStart);
-        var e = new Date(_dateEnd);
+        var e = new Date(_datedead);
 
         var c = s < e;
 
-        if(_dateStart == null || _dateEnd == null){
+        if(_dateStart == null || _datedead == null){
 
             return false
         }else {

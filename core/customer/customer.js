@@ -74,7 +74,7 @@ function Customer () {
     // insert to database
     function inserto () {
 
-        var sql = "INSERT INTO Clients (id, company, first_name, name, status, email, tel, address, zip, city, news, activity, comment, login_id, date) VALUES (null, '" + _company +"', '" + _first_name + "', '" + _name + "', '" + _status + "', '" + _email + "', '" + _tel+ "', '" + _address + "', '" + _zip + "','" + _city + "','" + _news + "','" + _activity + "','" + _comment + "','" + _id + "', CURRENT_TIMESTAMP)";
+        var sql = "INSERT INTO Clients (id_client, company, first_name, name_client, status, email_client, tel, address, zip, city, news, activity, comment_client, login_id, date_client) VALUES (null, '" + _company +"', '" + _first_name + "', '" + _name + "', '" + _status + "', '" + _email + "', '" + _tel+ "', '" + _address + "', '" + _zip + "','" + _city + "','" + _news + "','" + _activity + "','" + _comment + "','" + _id + "', CURRENT_TIMESTAMP)";
 
         connection.query(sql, function (error, results) {
             if (error) throw error;

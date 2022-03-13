@@ -34,7 +34,7 @@ function Ecustomer () {
 
             for($i = 0; $i < results.length; $i++){
 
-                $select += '<option value="' + results[$i].email + '">' + results[$i].company + '</option>';
+                $select += '<option value="' + results[$i].email_client + '">' + results[$i].company + '</option>';
             }
                 
             $select += '</select>';
@@ -51,22 +51,22 @@ function Ecustomer () {
     this.select = function () {
 
         var $select = $("#company_select").val();
-        var $sql = "SELECT * FROM Clients WHERE email='" + $select + "'";
+        var $sql = "SELECT * FROM Clients WHERE email_client='" + $select + "'";
 
         connection.query($sql, function (error, results){
             if(error) throw error;
 
             _company = $("#company").val(results[0].company);
             _first_name = $("#first_name").val(results[0].first_name);
-            _name = $("#name").val(results[0].name);
+            _name = $("#name").val(results[0].name_client);
             _status = $("#status").val(results[0].status);
-            _email = $("#email").val(results[0].email);
+            _email = $("#email").val(results[0].email_client);
             _tel = $("#tel").val(results[0].tel);
             _address = $("#address").val(results[0].address);
             _zip = $("#zip").val(results[0].zip);
             _city = $("#city").val(results[0].city);
             _activity = $("#activity").val(results[0].activity);
-            _comment = $("#comment").val(results[0].comment);
+            _comment = $("#comment").val(results[0].comment_client);
             _news = $("#news").prop("checked");
 
             if(results[0].news == 1){
@@ -121,7 +121,7 @@ function Ecustomer () {
 
         var $email = $("#company_select").val();
         // update
-        var sql = "UPDATE Clients SET company='" + _company + "', first_name='" + _first_name + "', name='" + _name + "', status='" + _status + "', email='" + _email + "', tel='" + _tel + "', address='" + _address + "', zip='" + _zip + "', city='" + _city + "', activity='" + _activity + "', comment='" + _comment + "', news='" + _news + "' WHERE email = '" + $email + "'";
+        var sql = "UPDATE Clients SET company='" + _company + "', first_name='" + _first_name + "', name_client='" + _name + "', status='" + _status + "', email_client='" + _email + "', tel='" + _tel + "', address='" + _address + "', zip='" + _zip + "', city='" + _city + "', activity='" + _activity + "', comment_client='" + _comment + "', news='" + _news + "' WHERE email_client = '" + $email + "'";
 
         connection.query(sql, function (error, results) {
             if (error) throw error;

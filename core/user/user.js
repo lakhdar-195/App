@@ -66,7 +66,7 @@ function User (){
 
         var password = sha1(password1);
 
-        var sql = "INSERT INTO Login (id, name, email, password, date, state, role)VALUES (null, '" + name +"', '" + email + "', '" + password + "', CURRENT_TIMESTAMP, '" + check + "', '" + role + "')";
+        var sql = "INSERT INTO Login (id_login, name_login, email_login, password, date_login, state, role)VALUES (null, '" + name +"', '" + email + "', '" + password + "', CURRENT_TIMESTAMP, '" + check + "', '" + role + "')";
 
         connection.query(sql, function (error, results) {
             if (error) throw error;
