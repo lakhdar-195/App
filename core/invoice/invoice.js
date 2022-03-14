@@ -49,14 +49,11 @@ function Invoice () {
             console.log('end stream')
         }, 1000);
 
-        viewer(fileName);
+    
 
     }
 
-    function viewer (pdfurl) {
-
-
-    }
+ 
 }
 
 var $invoice = new Invoice();
