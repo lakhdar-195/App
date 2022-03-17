@@ -1,4 +1,4 @@
-class Router  {
+class Controller  {
 
 
     init () {
@@ -30,5 +30,5 @@ class Router  {
     }
 }
 
-var $router =  new Router();
-$router.init();
+var $controller =  new Controller();
+$controller.init();
